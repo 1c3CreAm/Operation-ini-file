@@ -1,7 +1,8 @@
 import re
 
-re_str = '\[(.*)\]((\n.*=.*)*)'
+
 def read_ini(ini_path):
+    re_str = '\[(.*)\]((\n.*=.*)*)'
     result_dic = {}
     with open(ini_path) as f:
         a = f.read()
