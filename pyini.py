@@ -6,7 +6,7 @@ def read_ini(ini_path):
     result_dic = {}
     with open(ini_path) as f:
         a = f.read()
-    result_list = re.findall('\[(.*)\]((\n.*=.*)*)',a)
+    result_list = re.findall(re_str,a)
     for i in result_list:
         part_dic = {}
         j_list = i[1].split('\n')
@@ -42,7 +42,7 @@ def write_ini(ini_path,modify_result):
 
 
 if __name__ == '__main__':
-    a = '1'
+    a = '0'
     main_name ='EYOONETSET'
     term_name = 'SaveLog'
     ini_path = 'C:\\Users\\Wang\\Desktop\\EyooNetConfig.ini'
