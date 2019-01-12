@@ -20,6 +20,17 @@ def read_ini(ini_path):
         result_dic[i[0]] = part_dic
     return result_dic
 
+def inquire_ini(main_name,term_name):
+    dic = read_ini(ini_path)
+    for i in dic:
+        if re.search(main_name,i,re.IGNORECASE):
+            i = re.findall(main_name,i,re.IGNORECASE)[0]
+            for j in dic[i]:
+                if re.search(term_name,j,re.IGNORECASE):
+                    j = re.findall(term_name,j,re.IGNORECASE)[0]
+                    s = dic[i][j]
+    return s
+
 def modify_ini(main_name,term_name,a):
     dic = read_ini(ini_path)
     for i in dic:
@@ -42,8 +53,9 @@ def write_ini(ini_path,modify_result):
 
 
 if __name__ == '__main__':
-    a = '0'
+    a = '1'
     main_name ='EYOONETSET'
     term_name = 'SaveLog'
     ini_path = 'C:\\Users\\Wang\\Desktop\\EyooNetConfig.ini'
-    write_ini(ini_path,modify_ini(main_name,term_name,a))
+    # write_ini(ini_path,modify_ini(main_name,term_name,a))
+    print(inquire_ini(main_name,term_name))
