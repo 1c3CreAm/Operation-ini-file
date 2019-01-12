@@ -4,7 +4,10 @@
 读取ini：
 read_ini(ini_path)                             #ini_path：文件位置
 
-修改ini：
+查询ini：
+inquire_ini(main_name,term_name)               #main_name:主项名称、term_name:分项名称
+
+修改INI：
 modify_ini(main_name,term_name,a)              #main_name:主项名称、term_name:分项名称、a:准备修改的值
 
 写入ini（如果有需求）：
