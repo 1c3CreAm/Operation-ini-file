@@ -1,0 +1,30 @@
+import re
+import os
+
+def getgamename(listname):
+	f = open(listname, 'r')
+	line = f.read() 
+	f.close
+	list1 = re.findall(r'\[.*?\]',line)
+	return list1
+
+a = '主GamesList.ini'
+b = '从GamesList.ini'
+c = getgamename(a)
+d = getgamename(b)
+# print('主服务器有从服务器没有的资源：' )
+# print(list(set(c).difference(set(d))))
+list1= list(set(c).difference(set(d)))
+# print('从服务器有主服务器没有的资源：' )
+# print(list(set(d).difference(set(c))))
+list2 =list(set(d).difference(set(c)))
+# file = open('result' + '.txt','w')  
+# file.close() 
+with open('result' + '.txt','w') as f:
+	f.write("主服务器有从服务器没有的资源："+'\n')
+	for i in list1:
+		f.write(i+'\n')
+	f.write("从服务器有主服务器没有的资源："+'\n')
+	for i in list2:
+		f.write(i+'\n')
+os.system("result.txt")
